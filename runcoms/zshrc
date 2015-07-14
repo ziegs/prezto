@@ -11,3 +11,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zpath" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zpath"
+fi
+
+source ~/.zsh_aliases
+
+export EDITOR='vim'
