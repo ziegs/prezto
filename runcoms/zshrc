@@ -21,7 +21,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh_aliases" ]]; then
 fi
 
 # Source functions
-if [[ -s "${HOME}/.zsh/functions" ]]
+if [[ -s "${HOME}/.zsh/functions" ]]; then
   source "${HOME}/.zsh/functions"
 fi
 
