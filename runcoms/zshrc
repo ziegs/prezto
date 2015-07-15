@@ -10,12 +10,33 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-
+# Source PATH
 if [[ -s "${ZDOTDIR:-$HOME}/.zpath" ]]; then
   source "${ZDOTDIR:-$HOME}/.zpath"
 fi
 
-source ~/.zsh_aliases
 
 export EDITOR='vim'
+
+# Source aliases
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh_aliases" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh_aliases" ]]
+fi
+
+# Source functions
+if [[ -s "${HOME}/.zsh/functions" ]]; then
+  source "${HOME}/.zsh/functions"
+fi
+
+# Bindings for vim since these are hardwired into my brain
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^w' backward-kill-word
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^r' history-incremental-search-backward
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+bindkey '^k' kill-line
+
