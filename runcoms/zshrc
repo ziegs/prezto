@@ -1,8 +1,8 @@
 
 export EDITOR='vim'
 
-if [ -d "${ZDOTDIR:-$HOME}/.zshrc.d" ]; then
-    for i in "${ZDOTDIR:-$HOME}/.zshrc.d"; do
+if [ -d ${ZDOTDIR:-$HOME}/.zshrc.d ]; then
+    for i in ${ZDOTDIR:-$HOME}/.zshrc.d/*; do
         case $i in *~) continue;; esac
         source $i
     done
