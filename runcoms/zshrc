@@ -1,53 +1,10 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Source PATH
-if [[ -s "${ZDOTDIR:-$HOME}/.zpath" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zpath"
-fi
-
 
 export EDITOR='vim'
 
-# Source aliases
-if [[ -s "${ZDOTDIR:-$HOME}/.zsh_aliases" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zsh_aliases" ]]
+if [ -d "${ZDOTDIR:-$HOME}/.zshrc.d" ]; then
+    for i in "${ZDOTDIR:-$HOME}/.zshrc.d"; do
+        case $i in *~) continue;; esac
+        source $i
+    done
 fi
 
-# Source functions
-if [[ -s "${HOME}/.zsh/functions" ]]; then
-  source "${HOME}/.zsh/functions"
-fi
-
-# Bindings for vim since these are hardwired into my brain
-
-bindkey '^P' up-history
-bindkey '^N' down-history
-bindkey '^w' backward-kill-word
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-bindkey '^r' history-incremental-search-backward
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
-bindkey '^k' kill-line
-
-# Swap forward/backward search
-bindkey -M vicmd "/" history-incremental-search-backward
-bindkey -M vicmd "?" history-incremental-search-forward
-
-# Search based on what's been typed
-bindkey -M vicmd "//" history-beginning-search-backward
-bindkey -M vicmd "??" history-beginning-search-forward
-
-bindkey -M vicmd "q" push-line
-
-bindkey -M viins "jj" vi-cmd-mode
