@@ -26,13 +26,11 @@ zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
-  'ssh' \
   'editor' \
   'history' \
   'directory' \
   'spectrum' \
   'utility' \
-  'ssh' \
   'completion' \
   'tmux' \
   'osx' \
